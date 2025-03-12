@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("../playa-api/src/config/config");
+const connectDB = require("./src/config/config");
 require("dotenv").config();
+const authRoutes = require("./src/routes/authRoutes");
 
 // Inicializar app
 const app = express();
@@ -13,8 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("API funcionando correctamente");
+  res.send("<html><body><h1>Playa app API</h1></body></html>");
 });
+
+app.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT || 3000;
 
