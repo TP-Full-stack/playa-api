@@ -141,8 +141,10 @@ exports.forgotPassword = async (req, res) => {
       "host"
     )}/api/auth/reset-password/${resetToken}`;
 
+    const resetUrl2 = `http://localhost:3001/reset-password/${resetToken}`;
+
     // Crear mensaje de email
-    const mensaje = `Has solicitado restablecer tu contraseña. Por favor haz clic en el siguiente enlace para completar el proceso: \n\n ${resetUrl} \n\n Este enlace es válido por 10 minutos. Si no solicitaste este cambio, por favor ignora este email.`;
+    const mensaje = `Has solicitado restablecer tu contraseña. Por favor haz clic en el siguiente enlace para completar el proceso: \n\n ${resetUrl2} \n\n Este enlace es válido por 10 minutos. Si no solicitaste este cambio, por favor ignora este email.`;
 
     // Enviar email usando Resend
     await resend.emails.send({
