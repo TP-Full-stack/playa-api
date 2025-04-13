@@ -22,6 +22,12 @@ const schema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  resetPasswordToken: {
+    type: String,
+  },
+  resetPasswordExpire: {
+    type: Date,
+  },
 });
 
 // Middleware para encriptar contraseña antes de guardar
